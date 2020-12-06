@@ -1,0 +1,88 @@
+<div class="all-quiz">
+  <div class="quiz">
+    <div
+      class="question"
+      *ngIf="currentQuestion != dragonBallQuizEnglish.length"
+    >
+      <p>
+        <img
+          src="../../assets/dragon-ball/dragon-ball.png"
+          alt="dessin d'un point d'interogation"
+          width="90px"
+        />
+      </p>
+
+      <p class="question-text">
+        {{ dragonBallQuizEnglish[currentQuestion].title }}
+      </p>
+    </div>
+
+    <div
+      *ngIf="currentQuestion != dragonBallQuizEnglish.length"
+      class="responses"
+    >
+      <app-way-response
+        [response]="dragonBallQuizEnglish[currentQuestion].rep1"
+        [backColor]="'#cf0d0d'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(dragonBallQuizEnglish[currentQuestion - 1].rep1)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="dragonBallQuizEnglish[currentQuestion].rep2"
+        [backColor]="'#cf0d0d'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(dragonBallQuizEnglish[currentQuestion - 1].rep2)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="dragonBallQuizEnglish[currentQuestion].rep3"
+        [backColor]="'#cf0d0d'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(dragonBallQuizEnglish[currentQuestion - 1].rep3)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="dragonBallQuizEnglish[currentQuestion].rep4"
+        [backColor]="'#cf0d0d'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(dragonBallQuizEnglish[currentQuestion - 1].rep4)"
+      ></app-way-response>
+      <p>
+        Question {{ dragonBallQuizEnglish[currentQuestion].questionNumber }} /
+        {{ dragonBallQuizEnglish.length }}
+      </p>
+    </div>
+
+    <!-- Response -->
+
+    <div
+      class="answer-quiz"
+      *ngIf="currentQuestion === dragonBallQuizEnglish.length"
+    >
+      <app-way-logo></app-way-logo>
+      <p>You are :</p>
+      <h2>{{ answerCharacter.name }}</h2>
+
+      <p>
+        <img
+          src="../../assets/dragon-ball/{{ answerCharacter.pseudo }}.jpg"
+          alt=""
+        />
+      </p>
+      <div class="character-description">
+        <p>
+          {{ answerCharacter.description }}
+        </p>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" routerLink="/home">
+      play again
+    </button>
+  </div>
+</div>

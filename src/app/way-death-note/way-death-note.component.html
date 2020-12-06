@@ -1,0 +1,88 @@
+<div class="all-quiz">
+  <div class="quiz">
+    <div
+      class="question"
+      *ngIf="currentQuestion != deathNoteQuizEnglish.length"
+    >
+      <p class="img-question">
+        <img
+          src="../../assets/death-note/death-note.png"
+          alt="dessin d'un point d'interogation"
+          width="100px"
+        />
+      </p>
+
+      <p class="question-text">
+        {{ deathNoteQuizEnglish[currentQuestion].title }}
+      </p>
+    </div>
+
+    <div
+      *ngIf="currentQuestion != deathNoteQuizEnglish.length"
+      class="responses"
+    >
+      <app-way-response
+        [response]="deathNoteQuizEnglish[currentQuestion].rep1"
+        [backColor]="'grey'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(deathNoteQuizEnglish[currentQuestion - 1].rep1)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="deathNoteQuizEnglish[currentQuestion].rep2"
+        [backColor]="'grey'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(deathNoteQuizEnglish[currentQuestion - 1].rep2)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="deathNoteQuizEnglish[currentQuestion].rep3"
+        [backColor]="'grey'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(deathNoteQuizEnglish[currentQuestion - 1].rep3)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="deathNoteQuizEnglish[currentQuestion].rep4"
+        [backColor]="'grey'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(deathNoteQuizEnglish[currentQuestion - 1].rep4)"
+      ></app-way-response>
+      <p>
+        Question {{ deathNoteQuizEnglish[currentQuestion].questionNumber }} /
+        {{ deathNoteQuizEnglish.length }}
+      </p>
+    </div>
+
+    <!-- Response -->
+
+    <div
+      class="answer-quiz"
+      *ngIf="currentQuestion === deathNoteQuizEnglish.length"
+    >
+      <app-way-logo></app-way-logo>
+      <p>You are :</p>
+      <h2>{{ answerCharacter.name }}</h2>
+
+      <p>
+        <img
+          src="../../assets/death-note/{{ answerCharacter.pseudo }}.jpg"
+          alt=""
+        />
+      </p>
+      <div class="character-description">
+        <p>
+          {{ answerCharacter.description }}
+        </p>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" routerLink="/home">
+      play again
+    </button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.who-are-you-logo {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  img {
+    height: 40px;
+  }
+  span {
+    color: transparent;
+  }
+  .mat-color-button {
+    background-color: rgb(255, 206, 101);
+  }
+
+  button {
+    transition: 1s ease-out;
+    a {
+      img {
+        margin-top: -8px;
+      }
+    }
+  }
+
+  button:hover {
+    transform: translateY(-0.15rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+}

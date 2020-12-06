@@ -1,0 +1,85 @@
+<div class="all-quiz">
+  <div class="quiz">
+    <div class="question" *ngIf="currentQuestion != onePieceQuizEnglish.length">
+      <p>
+        <img
+          src="../../assets/one-piece/pirate-ship.png"
+          alt="dessin d'un point d'interogation"
+          width="90px"
+        />
+      </p>
+
+      <p class="question-text">
+        {{ onePieceQuizEnglish[currentQuestion].title }}
+      </p>
+    </div>
+
+    <div
+      *ngIf="currentQuestion != onePieceQuizEnglish.length"
+      class="responses"
+    >
+      <app-way-response
+        [response]="onePieceQuizEnglish[currentQuestion].rep1"
+        [backColor]="'black'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(onePieceQuizEnglish[currentQuestion - 1].rep1)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="onePieceQuizEnglish[currentQuestion].rep2"
+        [backColor]="'black'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(onePieceQuizEnglish[currentQuestion - 1].rep2)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="onePieceQuizEnglish[currentQuestion].rep3"
+        [backColor]="'black'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(onePieceQuizEnglish[currentQuestion - 1].rep3)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="onePieceQuizEnglish[currentQuestion].rep4"
+        [backColor]="'black'"
+        [color]="'white'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(onePieceQuizEnglish[currentQuestion - 1].rep4)"
+      ></app-way-response>
+      <p>
+        Question {{ onePieceQuizEnglish[currentQuestion].questionNumber }} /
+        {{ onePieceQuizEnglish.length }}
+      </p>
+    </div>
+
+    <!-- Response -->
+
+    <div
+      class="answer-quiz"
+      *ngIf="currentQuestion === onePieceQuizEnglish.length"
+    >
+      <app-way-logo></app-way-logo>
+      <p>You are :</p>
+      <h2>{{ answerCharacter.name }}</h2>
+
+      <p>
+        <img
+          src="../../assets/one-piece/{{ answerCharacter.pseudo }}.jpg"
+          alt=""
+        />
+      </p>
+      <div class="character-description">
+        <p>
+          {{ answerCharacter.description }}
+        </p>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" routerLink="/home">
+      play again
+    </button>
+  </div>
+</div>

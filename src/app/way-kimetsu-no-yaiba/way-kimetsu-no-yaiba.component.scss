@@ -1,0 +1,50 @@
+.all-quiz {
+  height: 100%;
+  overflow: scroll;
+  background-color: rgb(86, 24, 32);
+  .quiz {
+    background-color: rgb(86, 24, 32);
+    color: white;
+    text-align: center;
+    padding: 20px;
+
+    .question {
+      .img-question {
+        margin: 0 auto;
+      }
+      .question-text {
+        font-family: 'Freckle Face', cursive;
+        font-size: 1.4em;
+        margin-top: 0;
+      }
+    }
+
+    .answer-quiz {
+      color: black;
+      h2 {
+        font-family: 'Freckle Face', cursive;
+      }
+      .character-description {
+        margin: 10px;
+        padding: 5px 50px 5px 50px;
+        background-color: rgba($color: #fdfdfd, $alpha: 0.3);
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    button {
+      transition: 1s ease-out;
+      font-family: 'Quicksand', sans-serif;
+      margin: 10px;
+    }
+    button:hover {
+      transform: translateY(-0.15rem);
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Button color by adding in html : [color]="'color-button'"*/
+    .mat-color-button {
+      background-color: #fff;
+    }
+  }
+}

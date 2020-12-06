@@ -1,0 +1,72 @@
+<div class="all-quiz">
+  <div class="quiz">
+    <div class="question" *ngIf="currentQuestion != kimetsuQuizEnglish.length">
+      <p>
+        <img
+          src="../../assets/kimetsu/kimetsu-demon.png"
+          alt="dessin d'un démon"
+          width="90px"
+        />
+      </p>
+
+      <p class="question-text">
+        {{ kimetsuQuizEnglish[currentQuestion].title }}
+      </p>
+    </div>
+
+    <div *ngIf="currentQuestion != kimetsuQuizEnglish.length" class="responses">
+      <app-way-response
+        [response]="kimetsuQuizEnglish[currentQuestion].rep1"
+        [backColor]="'rgb(255, 195, 30)'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(kimetsuQuizEnglish[currentQuestion - 1].rep1)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="kimetsuQuizEnglish[currentQuestion].rep2"
+        [backColor]="'rgb(255, 195, 30)'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(kimetsuQuizEnglish[currentQuestion - 1].rep2)"
+      ></app-way-response>
+
+      <app-way-response
+        [response]="kimetsuQuizEnglish[currentQuestion].rep3"
+        [backColor]="'rgb(255, 195, 30)'"
+        (click)="goToNextQuestion()"
+        (click)="takeValue(kimetsuQuizEnglish[currentQuestion - 1].rep3)"
+      ></app-way-response>
+
+      <p>
+        Question {{ kimetsuQuizEnglish[currentQuestion].questionNumber }} /
+        {{ kimetsuQuizEnglish.length }}
+      </p>
+    </div>
+
+    <!-- Response -->
+
+    <div
+      class="answer-quiz"
+      *ngIf="currentQuestion === kimetsuQuizEnglish.length"
+    >
+      <app-way-logo></app-way-logo>
+      <p>You are :</p>
+      <h2>{{ answerCharacter.name }}</h2>
+
+      <p>
+        <img
+          src="../../assets/kimetsu/{{ answerCharacter.pseudo }}.jpg"
+          alt=""
+        />
+      </p>
+      <div class="character-description">
+        <p>
+          {{ answerCharacter.description }}
+        </p>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" routerLink="/home">
+      play again
+    </button>
+  </div>
+</div>
